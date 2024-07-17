@@ -1,0 +1,33 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random ages
+np.random.seed(0)
+ages = np.random.randint(18, 65, size=100)
+
+# Sample data for genders
+genders = ['Male', 'Female', 'Female', 'Male', 'Male', 'Female', 'Male', 'Male', 'Female', 'Female',
+           'Male', 'Male', 'Female', 'Female', 'Male', 'Female', 'Female', 'Male', 'Male', 'Female']
+
+# Plotting histogram for ages
+plt.figure(figsize=(10, 5))
+
+plt.subplot(1, 2, 1)  # 1 row, 2 columns, 1st subplot
+plt.hist(ages, bins=10, edgecolor='black')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.title('Distribution of Ages in Population')
+
+# Plotting bar chart for genders
+plt.subplot(1, 2, 2)  # 1 row, 2 columns, 2nd subplot
+gender_counts = {gender: genders.count(gender) for gender in set(genders)}
+plt.bar(gender_counts.keys(), gender_counts.values(), color=['blue', 'pink'])
+plt.xlabel('Gender')
+plt.ylabel('Count')
+plt.title('Distribution of Genders in Population')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show plots
+plt.show()
